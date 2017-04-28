@@ -1,0 +1,22 @@
+<h1>{{ title }}</h1>
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+
+<sebm-google-map [latitude]="lat" [longitude]="lng">
+  <div *ngFor = "let event of events">
+    <sebm-google-map-marker [title] = "event.suspect" [latitude]="event.lat" [longitude]="event.lng">
+      <sebm-google-map-info-window [disableAutoPan]="true">
+        <strong>Crime: </strong> {{event.category}}
+        <br>
+        <strong>Time: </strong> {{event.time}}
+        <br>
+        <strong>Date: </strong> {{event.date}}
+        <br>
+        <strong>Outcome: </strong>{{event.outcome}}
+        <br>
+      </sebm-google-map-info-window>
+    </sebm-google-map-marker>
+      </div>
+</sebm-google-map>
+
